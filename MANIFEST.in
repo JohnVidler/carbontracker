@@ -1,1 +1,2 @@
 recursive-include carbontracker *.csv
+recursive-include carbontracker *.py
