@@ -1,3 +1,12 @@
+# **carbontracker-hex**
+
+A slightly modified version of `carbontracker` to work with the 'Hex' multicomputer system at the School of Computing and Communications at Lancaster University for the UCREL, Cyber, and DSI groups.
+
+This variant of `carbontracker` includes all the usual parts, with the addition of a [Prometheus metrics](https://prometheus.io/) aware CPU and GPU component to allow users on Hex to monitor their own node's energy usage without needing root access for `RAPL` or extra `/sys` permissions
+
+Everything below is a direct copy of the original `carbontracker` README:
+
+---
 # **carbontracker**
 [![Build](https://github.com/lfwa/carbontracker/actions/workflows/publish.yml/badge.svg)](https://github.com/lfwa/carbontracker/actions)
 [![PyPI](https://img.shields.io/pypi/v/carbontracker?label=PyPI)](https://pypi.org/project/carbontracker/)
