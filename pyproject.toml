@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "carbontracker-hex"
+name = "carbontracker"
 description = "A custom variant of 'carbontracker' for the Lancaster University Hex multicomputer- Track and predict the energy consumption and carbon footprint of training deep learning models."
 readme = "README.md"
 requires-python = ">=3.7"
@@ -21,8 +21,8 @@ dependencies = ["requests", "numpy", "pandas", "geocoder", "pynvml", "psutil", "
 dynamic = ["version"]
 
 [project.urls]
-homepage = "https://github.com/JohnVidler/carbontracker-hex"
-repository = "https://github.com/JohnVidler/carbontracker-hex"
+homepage = "https://github.com/JohnVidler/carbontracker"
+repository = "https://github.com/JohnVidler/carbontracker"
 
 [tool.setuptools_scm]
 
