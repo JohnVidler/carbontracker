@@ -4,6 +4,8 @@ from carbontracker import exceptions
 from carbontracker.components.gpu import nvidia
 from carbontracker.components.cpu import intel
 from carbontracker.components.apple_silicon.powermetrics import AppleSiliconCPU, AppleSiliconGPU
+from carbontracker.components.prometheus.cpu_metrics import PrometheusCPU
+from carbontracker.components.prometheus.gpu_metrics import PrometheusGPU
 
 COMPONENTS = [
     {
@@ -15,6 +17,11 @@ COMPONENTS = [
         "name": "cpu",
         "error": exceptions.CPUError("No CPU(s) available."),
         "handlers": [intel.IntelCPU, AppleSiliconCPU],
+    },
+    {
+        "name": "prometheus",
+        "error": exceptions.CPUError("No Prometheus CPU/GPU service available."),
+        "handlers": [PrometheusCPU, PrometheusGPU],
     },
 ]
 
@@ -31,6 +38,7 @@ def error_by_name(name):
 
 def handlers_by_name(name):
     for comp in COMPONENTS:
+        print( comp["name"] )
         if comp["name"] == name:
             return comp["handlers"]
 
@@ -136,7 +144,6 @@ class Component:
 
     def shutdown(self):
         self.handler.shutdown()
-
 
 def create_components(components, pids, devices_by_pid):
     components = components.strip().replace(" ", "").lower()

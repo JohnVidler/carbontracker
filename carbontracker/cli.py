@@ -9,6 +9,8 @@ def main():
     parser.add_argument("--log_dir", type=str, default="./logs", help="Log directory")
     parser.add_argument("--api_keys", type=str, help="API keys in a dictionary-like format, e.g., "
                                                  "'{\"electricitymaps\": \"YOUR_KEY\"}'", default=None)
+    parser.add_argument( "--detect", default=False, action="store_true", help="Attempt to detect measurable hardware")
+    parser.add_argument( "--components", default="all", action="store", help="Specify which components to use for energy detection (comma delimited)" )
 
     # Parse known arguments only
     known_args, remaining_args = parser.parse_known_args()
@@ -16,7 +18,11 @@ def main():
     # Parse the API keys string into a dictionary
     api_keys = ast.literal_eval(known_args.api_keys) if known_args.api_keys else None
 
-    tracker = CarbonTracker(epochs=1, log_dir=known_args.log_dir, epochs_before_pred=0, api_keys=api_keys)
+    tracker = CarbonTracker(epochs=1, log_dir=known_args.log_dir, epochs_before_pred=0, api_keys=api_keys, components=known_args.components)
+
+    if known_args.detect:
+        exit( 42 )
+
     tracker.epoch_start()
 
     # The remaining_args are considered as the command to execute
