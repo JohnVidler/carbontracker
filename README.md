@@ -1,4 +1,4 @@
-# **carbontracker-hex**
+# **carbontracker for Hex**
 
 A slightly modified version of `carbontracker` to work with the 'Hex' multicomputer system at the School of Computing and Communications at Lancaster University for the UCREL, Cyber, and DSI groups.
 
